@@ -10,7 +10,7 @@ import static org.hamcrest.Matchers.*;
 
 public class testLoginUserTest extends testBaseUserTest {
 
-    private static final String dataAuth = "dmjspjdp";
+    private static final String DATA_AUTH = "dmjspjdp";
 
     @Test
     @DisplayName("Логин юзера с валидными данными")
@@ -33,7 +33,7 @@ public class testLoginUserTest extends testBaseUserTest {
     public void loginWithIncorrectLoginFieldTest() {
         response = User.registrationUser(user);
         token = response.extract().path("accessToken");
-        user.setEmail(user.getEmail() + dataAuth);
+        user.setEmail(user.getEmail() + DATA_AUTH);
         login = User.authorizationUser(user);
         login
                 .statusCode(HttpStatus.SC_UNAUTHORIZED)
@@ -49,7 +49,7 @@ public class testLoginUserTest extends testBaseUserTest {
     public void loginWithIncorrectPasswordFieldTest() {
         response = User.registrationUser(user);
         token = response.extract().path("accessToken");
-        user.setPassword(user.getPassword() + dataAuth);
+        user.setPassword(user.getPassword() + DATA_AUTH);
         login = User.authorizationUser(user);
         login
                 .statusCode(HttpStatus.SC_UNAUTHORIZED)

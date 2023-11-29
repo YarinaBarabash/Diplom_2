@@ -27,8 +27,6 @@ public class testBaseOrderTest {
     @After
     public void cleanUp() {
         if (token == null) return;
-        User.deleteUser(createUserRequest, token);
-        if (token == null) return;
         User.deleteUser(user, token);
     }
 }
